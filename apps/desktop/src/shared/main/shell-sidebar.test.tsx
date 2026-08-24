@@ -44,43 +44,13 @@ describe("ClassicMainSidebar", () => {
     setLocked.mockClear();
   });
 
-  it("forces custom-sidebar tabs open and restores the previous sidebar state", async () => {
+  it("preserves sidebar visibility when opening custom-sidebar tabs", () => {
     mockCurrentTab = { type: "settings" };
-
-    const { rerender } = render(<ClassicMainSidebar />);
-
-    expect(setExpanded).toHaveBeenCalledWith(true);
-    expect(setLocked).toHaveBeenCalledWith(true);
-
-    mockCurrentTab = { type: "empty" };
-
-    rerender(<ClassicMainSidebar />);
-
-    expect(setLocked).toHaveBeenLastCalledWith(false);
-    expect(setExpanded).toHaveBeenLastCalledWith(false);
-  });
-
-  it("unlocks the custom sidebar when unmounted while active", () => {
-    mockCurrentTab = { type: "calendar" };
-
-    const { unmount } = render(<ClassicMainSidebar />);
-
-    expect(setExpanded).toHaveBeenCalledWith(true);
-    expect(setLocked).toHaveBeenCalledWith(true);
-
-    unmount();
-
-    expect(setLocked).toHaveBeenLastCalledWith(false);
-    expect(setExpanded).toHaveBeenLastCalledWith(false);
-  });
-
-  it("forces the Automations navigator open", () => {
-    mockCurrentTab = { type: "automations" };
 
     render(<ClassicMainSidebar />);
 
-    expect(setExpanded).toHaveBeenCalledWith(true);
-    expect(setLocked).toHaveBeenCalledWith(true);
+    expect(setExpanded).not.toHaveBeenCalled();
+    expect(setLocked).not.toHaveBeenCalled();
   });
 
   it("renders the default timeline sidebar when expanded", () => {
