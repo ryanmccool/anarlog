@@ -38,6 +38,8 @@
 
 ## Sync and collaboration
 
+The desktop shell no longer starts attachment transfers, Cloud API backfill, CloudSync keychain repair, or shared-note cache/publish/preview services. Their implementations, runtime dependencies, and data paths still need deletion.
+
 - [ ] Read and follow `crates/cloudsync/AGENTS.md` before changing CloudSync.
 - [x] Remove the Sync settings navigation and route.
 - [x] Remove the sync-status host from the desktop shell.
