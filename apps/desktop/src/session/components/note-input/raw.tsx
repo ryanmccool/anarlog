@@ -10,7 +10,6 @@ import {
   type NoteEditorRef,
   normalizePortableAttachmentUrls,
 } from "@anlg/editor/note";
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import { cn } from "@anlg/utils";
 
 import { AudioDropTarget } from "./audio-drop-target";
@@ -18,6 +17,7 @@ import { CreateBriefSuggestion } from "./create-brief-suggestion";
 import { useNoteFileHandlerConfig } from "./file-handler";
 import { MeetingChatHighlights } from "./meeting-chat-highlights";
 
+import { analyticsCommands } from "~/analytics";
 import { trackAnalyticsEvent } from "~/analytics";
 import { useAudioPlayer } from "~/audio-player";
 import { useSessionEventParticipants } from "~/calendar/queries";

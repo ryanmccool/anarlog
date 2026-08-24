@@ -9,7 +9,6 @@ import { useMutation, useQueries } from "@tanstack/react-query";
 import { type ComponentType, type ReactNode, useMemo, useState } from "react";
 import { Streamdown } from "streamdown";
 
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import type { AIProvider } from "@anlg/store";
 import { aiProviderSchema } from "@anlg/store";
 import {
@@ -37,6 +36,7 @@ import {
 } from "./eligibility";
 import { useProviderSelectionPrompt } from "./provider-selection-prompt";
 
+import { analyticsCommands } from "~/analytics";
 import { useBillingAccess } from "~/auth/billing-context";
 import {
   isKeychainAccessError,

@@ -1,8 +1,8 @@
 import { listen } from "@tauri-apps/api/event";
 
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import { commands as store2Commands } from "@anlg/plugin-store2";
 
+import { analyticsCommands } from "~/analytics";
 import { flushDatabaseWritesWithin } from "~/db/write-queue";
 import { confirmAllPendingDeletions } from "~/store/zustand/undo-delete";
 import { commands } from "~/types/tauri.gen";

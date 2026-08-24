@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import { sonnerToast } from "@anlg/ui/components/ui/toast";
 
 import { useCaptureLifecycle } from "./capture-lifecycle";
@@ -11,6 +10,7 @@ import {
   startMeetingRecordingDisclosure,
 } from "./meeting-disclosure";
 
+import { analyticsCommands } from "~/analytics";
 import { trackAnalyticsEvent } from "~/analytics";
 import { getSessionEvent } from "~/session/utils";
 import { useConfigValue } from "~/shared/config";

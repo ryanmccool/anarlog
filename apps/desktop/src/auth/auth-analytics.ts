@@ -2,10 +2,10 @@ import type { AuthChangeEvent, Session } from "@supabase/supabase-js";
 import { getVersion } from "@tauri-apps/api/app";
 import { version as osVersion, platform } from "@tauri-apps/plugin-os";
 
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import { commands as authPluginCommands } from "@anlg/plugin-auth";
 import { deriveBillingInfo } from "@anlg/supabase";
 
+import { analyticsCommands } from "~/analytics";
 import { setErrorReportingUser } from "~/error-reporting";
 
 let trackedIdentifySignature: string | null = null;

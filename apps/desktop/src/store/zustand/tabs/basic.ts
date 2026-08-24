@@ -1,7 +1,5 @@
 import type { StoreApi } from "zustand";
 
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
-
 import type { ChatModeState } from "./chat-mode";
 import type { LifecycleState } from "./lifecycle";
 import type { NavigationState, TabHistory } from "./navigation";
@@ -18,6 +16,7 @@ import {
   uniqueIdfromTab,
 } from "./schema";
 
+import { analyticsCommands } from "~/analytics";
 import { id } from "~/shared/utils";
 import { listenerStore } from "~/store/zustand/listener/instance";
 

@@ -4,8 +4,9 @@ import { CircleNotch } from "@phosphor-icons/react";
 import { useForm } from "@tanstack/react-form";
 import { useQuery } from "@tanstack/react-query";
 
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import { commands as listenerCommands } from "@anlg/plugin-transcription";
+
+import { analyticsCommands } from "~/analytics";
 
 export { SettingsAccount } from "./account";
 import { AppSettingsView } from "./app-settings";

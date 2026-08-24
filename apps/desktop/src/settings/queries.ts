@@ -1,7 +1,6 @@
 import { disable, enable } from "@tauri-apps/plugin-autostart";
 import { useCallback } from "react";
 
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import { commands as detectCommands } from "@anlg/plugin-detect";
 import { commands as localSttCommands } from "@anlg/plugin-local-stt";
 import { commands as templateCommands } from "@anlg/plugin-template";
@@ -9,6 +8,7 @@ import { commands as trayCommands } from "@anlg/plugin-tray";
 import { commands as updaterCommands } from "@anlg/plugin-updater2";
 import { commands as windowsCommands } from "@anlg/plugin-windows";
 
+import { analyticsCommands } from "~/analytics";
 import { executeTransaction, liveQueryClient, useLiveQuery } from "~/db";
 import { enqueueDatabaseWrite } from "~/db/write-queue";
 import { setErrorReportingEnabled } from "~/error-reporting";

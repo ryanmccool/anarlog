@@ -1,4 +1,3 @@
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import {
   eventParticipantSchema,
   type EventParticipant,
@@ -7,6 +6,7 @@ import {
 
 import type { SessionChanges } from "./types";
 
+import { analyticsCommands } from "~/analytics";
 import { executeTransaction, liveQueryClient } from "~/db";
 import { DEFAULT_USER_ID, id } from "~/shared/utils";
 

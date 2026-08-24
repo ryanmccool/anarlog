@@ -1,24 +1,25 @@
-import {
-  commands as analyticsCommands,
-  type JsonValue,
-} from "@anlg/plugin-analytics";
+type JsonValue =
+  | boolean
+  | number
+  | string
+  | null
+  | undefined
+  | JsonValue[]
+  | { [key: string]: JsonValue };
+
+type AnalyticsEvent = { event: string; [key: string]: JsonValue };
+
+export const analyticsCommands = {
+  clearGroups: async () => undefined,
+  event: async (_event: AnalyticsEvent) => undefined,
+  eventFireAndForget: async (_event: AnalyticsEvent) => undefined,
+  identify: async (_id: string, _properties: Record<string, JsonValue>) =>
+    undefined,
+  setDisabled: async (_disabled: boolean) => undefined,
+  setProperties: async (_properties: Record<string, unknown>) => undefined,
+};
 
 export function trackAnalyticsEvent(
-  event: string,
-  properties: Record<string, JsonValue> = {},
-) {
-  try {
-    const capture = analyticsCommands.eventFireAndForget;
-    if (typeof capture !== "function") return;
-
-    const pending = capture({
-      event,
-      ...properties,
-    });
-    void pending.catch((error: unknown) => {
-      console.warn(`[analytics] failed to record ${event}`, error);
-    });
-  } catch (error) {
-    console.warn(`[analytics] failed to record ${event}`, error);
-  }
-}
+  _event: string,
+  _properties: Record<string, JsonValue> = {},
+) {}

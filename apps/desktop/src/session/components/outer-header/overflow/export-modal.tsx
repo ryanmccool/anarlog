@@ -4,7 +4,6 @@ import { downloadDir, join } from "@tauri-apps/api/path";
 import { useMemo, useState } from "react";
 
 import { json2md } from "@anlg/editor/markdown";
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import {
   commands as exportCommands,
   type ExportMetadata,
@@ -22,6 +21,7 @@ import { cn } from "@anlg/utils";
 
 import { formatDate, formatDuration } from "./export-utils";
 
+import { analyticsCommands } from "~/analytics";
 import { useTranscriptExportSegments } from "~/session/components/note-input/transcript/export-data";
 import {
   useEnhancedNote,

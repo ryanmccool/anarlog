@@ -4,7 +4,6 @@ import { useMutation } from "@tanstack/react-query";
 import { readText as readClipboardText } from "@tauri-apps/plugin-clipboard-manager";
 import { useEffect, useRef, useState } from "react";
 
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import {
   commands as deeplink2Commands,
   events as deeplink2Events,
@@ -34,6 +33,7 @@ import {
   subscriptionAuthFromCallback,
 } from "./oauth";
 
+import { analyticsCommands } from "~/analytics";
 import { useProviderSelectionPrompt } from "~/settings/ai/shared/provider-selection-prompt";
 import { useSetAiProvider } from "~/settings/providers";
 import { useConfigValue } from "~/shared/config";

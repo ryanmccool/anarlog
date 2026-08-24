@@ -4,7 +4,6 @@ import { open as selectFile } from "@tauri-apps/plugin-dialog";
 import { Effect, pipe } from "effect";
 import { useCallback } from "react";
 
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import {
   commands as fsSyncCommands,
   events as fsSyncEvents,
@@ -17,6 +16,7 @@ import { fromResult } from "./fromResult";
 import { ChannelProfile } from "./segment";
 import { isStoppedTranscriptionError, useRunBatch } from "./useRunBatch";
 
+import { analyticsCommands } from "~/analytics";
 import { withCloudsyncActivity } from "~/db/cloudsync-activity";
 import { getEnhancerService } from "~/services/enhancer";
 import { catalogLocalSessionAudio } from "~/session/attachments";

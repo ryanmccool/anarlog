@@ -8,7 +8,6 @@ import {
 } from "@phosphor-icons/react";
 import { useRef, useState } from "react";
 
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import { commands as openerCommands } from "@anlg/plugin-opener2";
 import { commands as sfxCommands } from "@anlg/plugin-sfx";
 
@@ -18,6 +17,7 @@ import {
   setPendingWelcomeSession,
 } from "./welcome-note";
 
+import { analyticsCommands } from "~/analytics";
 import { createSession } from "~/session/queries";
 import { flushAutomaticRelaunch } from "~/shared/relaunch";
 import { commands } from "~/types/tauri.gen";

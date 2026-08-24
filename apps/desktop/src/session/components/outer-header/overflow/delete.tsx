@@ -2,10 +2,10 @@ import { Trans } from "@lingui/react/macro";
 import { CircleNotch, Trash } from "@phosphor-icons/react";
 import { useCallback } from "react";
 
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import { DropdownMenuItem } from "@anlg/ui/components/ui/dropdown-menu";
 import { cn } from "@anlg/utils";
 
+import { analyticsCommands } from "~/analytics";
 import { useAudioPlayer } from "~/audio-player";
 import { useDeleteSession } from "~/session/hooks/useDeleteSession";
 import { useSessionSummary } from "~/session/queries";

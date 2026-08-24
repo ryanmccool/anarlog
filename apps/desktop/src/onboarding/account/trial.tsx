@@ -5,8 +5,8 @@ import { useEffect, useRef } from "react";
 import { startTrial } from "@anlg/api-client";
 import type { StartTrialReason } from "@anlg/api-client";
 import { createClient } from "@anlg/api-client/client";
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 
+import { analyticsCommands } from "~/analytics";
 import { useAuth } from "~/auth";
 import { useBillingAccess } from "~/auth/billing-context";
 import { env } from "~/env";

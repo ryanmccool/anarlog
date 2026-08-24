@@ -2,12 +2,12 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 import type { ChatEditorHandle, JSONContent } from "@anlg/editor/chat";
 import { EMPTY_DOC } from "@anlg/editor/markdown";
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import { sonnerToast } from "@anlg/ui/components/ui/toast";
 
 import { DraftCache, type DraftRetentionFailure } from "./draft-cache";
 import { pushSentMessage, sentMessageAt, sentMessageCount } from "./history";
 
+import { analyticsCommands } from "~/analytics";
 import type { ContextRef } from "~/chat/context/entities";
 import { useMountEffect } from "~/shared/hooks/useMountEffect";
 

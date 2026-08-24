@@ -1,7 +1,6 @@
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
-
 import { WELCOME_NOTE_TRACKING_ID } from "./welcome-note.constants";
 
+import { analyticsCommands } from "~/analytics";
 import { loadSessionContentSnapshot } from "~/session/content-queries";
 
 export function getMeetingNoteCompletionEvent(event: unknown) {

@@ -1,6 +1,5 @@
 import { useCallback } from "react";
 
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import { sonnerToast } from "@anlg/ui/components/ui/toast";
 
 import { useAITaskTask } from "~/ai/hooks";
@@ -10,6 +9,7 @@ import {
   requestMainAITaskCancel,
   requestMainEnhance,
 } from "~/ai/task-window-sync";
+import { analyticsCommands } from "~/analytics";
 import { getEligibility } from "~/services/enhancer/eligibility";
 import { loadSessionContentSnapshot } from "~/session/content-queries";
 import { useEnhancedNote } from "~/session/queries";

@@ -7,7 +7,6 @@ import { StrictMode, useEffect, useMemo } from "react";
 import ReactDOM from "react-dom/client";
 
 import "@anlg/ui/globals.css";
-import { commands as analyticsCommands } from "@anlg/plugin-analytics";
 import {
   getCurrentWebviewWindowLabel,
   init as initWindowsPlugin,
@@ -49,6 +48,8 @@ import { AppThemeProvider } from "./shared/theme/provider";
 import type { ThemePreference } from "./shared/theme/resolve";
 import { createAITaskStore } from "./store/zustand/ai-task";
 import { listenerStore } from "./store/zustand/listener/instance";
+
+import { analyticsCommands } from "~/analytics";
 
 const toolRegistry = createToolRegistry();
 const queryClient = new QueryClient({
