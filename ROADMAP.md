@@ -17,10 +17,11 @@
 - [x] Stop recording, custom-tab, docked-chat, and resize behavior from changing sidebar visibility.
 - [x] Remove the Account settings destination and navigation item.
 - [x] Disable desktop analytics calls with a local no-op adapter.
+- [x] Remove the Rust/desktop analytics plugin, Tauri registration, permissions, and notification/window emitters.
 
 ## Telemetry
 
-- [ ] Remove the desktop analytics adapter, callers, plugin registration, package dependency, and test mocks.
+- [ ] Remove the remaining desktop analytics adapter/callers and analytics test mocks.
 - [ ] Remove frontend Sentry/error-reporting code and settings.
 - [ ] Remove Tauri crash reporting and minidump handling.
 - [ ] Remove server/API observability and telemetry dependencies/configuration.
