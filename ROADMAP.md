@@ -24,7 +24,9 @@
 - [ ] Remove the remaining desktop analytics adapter/callers and analytics test mocks.
 - [x] Remove frontend Sentry/error-reporting transport and dependency.
 - [x] Remove Tauri crash reporting, persisted consent commands, startup reporting, and minidump handling.
-- [ ] Remove server/API observability and telemetry dependencies/configuration.
+- [ ] Remove API Sentry middleware, OpenTelemetry/Honeycomb export, trace context, and observability configuration. In progress.
+- [x] Remove CLI Sentry/error-reporting.
+- [ ] Remove remaining Sentry dependencies in tracing and managed-service crates.
 - [ ] Verify no telemetry endpoint or SDK remains in desktop production dependencies.
 
 ## Accounts and billing
