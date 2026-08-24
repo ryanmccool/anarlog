@@ -399,7 +399,7 @@ describe("MainChatPanels", () => {
     );
   });
 
-  it("collapses the left sidebar when docked chat would make the note surface narrower than 500px", () => {
+  it("preserves the left sidebar when docked chat narrows the note surface", () => {
     mocks.chatMode = "RightPanelOpen";
     mocks.currentTab = { type: "sessions" };
     mocks.leftSidebarExpanded = true;
@@ -418,7 +418,7 @@ describe("MainChatPanels", () => {
       </MainChatPanels>,
     );
 
-    expect(mocks.setLeftSidebarExpanded).toHaveBeenCalledWith(false);
+    expect(mocks.setLeftSidebarExpanded).not.toHaveBeenCalled();
     expect(mocks.windowExpandWidth).not.toHaveBeenCalled();
   });
 
@@ -573,7 +573,7 @@ describe("MainChatPanels", () => {
     expect(mocks.windowRestoreWidth).toHaveBeenCalledTimes(1);
   });
 
-  it("collapses the left sidebar when a window resize would make the note surface narrower than 500px", () => {
+  it("preserves the left sidebar when a window resize narrows the note surface", () => {
     mocks.currentTab = { type: "sessions" };
     mocks.leftSidebarExpanded = true;
     const panelWidths = {
@@ -596,7 +596,7 @@ describe("MainChatPanels", () => {
     panelWidths.bodyPanelWidth = 690;
     fireEvent.resize(window);
 
-    expect(mocks.setLeftSidebarExpanded).toHaveBeenCalledWith(false);
+    expect(mocks.setLeftSidebarExpanded).not.toHaveBeenCalled();
   });
 });
 

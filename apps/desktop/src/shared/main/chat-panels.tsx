@@ -40,9 +40,7 @@ export function MainChatPanels({
   const isRightPanelOpen = isAutomationsTab || chat.mode === "RightPanelOpen";
   const leftSidebarExpanded = leftSidebarAvailable && leftsidebar.expanded;
   const reserveNoteSurfaceMinWidth = usesNoteSurfaceMinWidth(currentTab);
-  const collapseLeftSidebar = useCallback(() => {
-    leftsidebar.setExpanded(false);
-  }, [leftsidebar.setExpanded]);
+  const collapseLeftSidebar = useCallback(() => undefined, []);
   const bodyMinWidth = getMainBodyMinWidth({
     currentTab,
     leftSidebarExpanded,
