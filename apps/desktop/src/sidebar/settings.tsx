@@ -17,7 +17,6 @@ import {
   ShieldCheck,
   Sparkle,
   Sun,
-  User,
   Users,
   UsersThree,
   VideoCamera,
@@ -81,7 +80,6 @@ export function SettingsNav() {
       label: t`App`,
       items: [
         { id: "app", label: t`General`, icon: Gear },
-        { id: "account", label: t`Account`, icon: User },
         {
           id: "team",
           label: t`Team`,

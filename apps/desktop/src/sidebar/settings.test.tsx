@@ -141,7 +141,6 @@ describe("SettingsNav", () => {
       "App",
       "General",
       "Appearance",
-      "Account",
       "Team",
       "Notifications",
       "Workspace",
