@@ -23,7 +23,7 @@
 
 - [ ] Remove the remaining desktop analytics adapter/callers and analytics test mocks.
 - [x] Remove frontend Sentry/error-reporting transport and dependency.
-- [ ] Remove Tauri crash reporting and minidump handling.
+- [x] Remove Tauri crash reporting, persisted consent commands, startup reporting, and minidump handling.
 - [ ] Remove server/API observability and telemetry dependencies/configuration.
 - [ ] Verify no telemetry endpoint or SDK remains in desktop production dependencies.
 
