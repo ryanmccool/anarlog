@@ -17303,29 +17303,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "tauri-plugin-analytics"
-version = "0.1.0"
-dependencies = [
- "analytics",
- "host",
- "serde",
- "serde_json",
- "specta",
- "specta-typescript",
- "strum 0.28.0",
- "tauri",
- "tauri-plugin",
- "tauri-plugin-misc",
- "tauri-plugin-store",
- "tauri-plugin-store2",
- "tauri-specta",
- "thiserror 2.0.18",
- "tokio",
- "tracing",
- "uuid",
-]
-
-[[package]]
 name = "tauri-plugin-anlg-tray"
 version = "0.1.0"
 dependencies = [
@@ -18042,7 +18019,6 @@ dependencies = [
  "strum 0.28.0",
  "tauri",
  "tauri-plugin",
- "tauri-plugin-analytics",
  "tauri-plugin-dialog",
  "tauri-plugin-windows",
  "tauri-specta",
@@ -18626,7 +18602,6 @@ dependencies = [
  "tauri",
  "tauri-nspanel",
  "tauri-plugin",
- "tauri-plugin-analytics",
  "tauri-plugin-os",
  "tauri-plugin-sfx",
  "tauri-plugin-window-state",
