@@ -261,7 +261,7 @@ describe("useEnsureDefaultSummary", () => {
     hoisted.llmStatus = {
       status: "pending",
       reason: "missing_model",
-      providerId: "anarlog",
+      providerId: "openai",
     };
 
     renderHook(() => useEnsureDefaultSummary("session-1"));

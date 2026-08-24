@@ -10,35 +10,22 @@ vi.mock("@anlg/plugin-local-stt", () => ({
   },
 }));
 
-vi.mock("~/auth", () => ({
-  useAuth: () => ({ session: { access_token: "access-token" } }),
-}));
-
-vi.mock("~/auth/billing-context", () => ({
-  useBillingAccess: () => ({ isPaid: true }),
-}));
-
-vi.mock("~/env", () => ({
-  env: { VITE_API_URL: "https://api.anarlog.so" },
-}));
-
 vi.mock("~/settings/providers", () => ({
   useAiProvider: () => ({
     type: "stt",
-    base_url: "   ",
-    api_key: "",
+    base_url: "https://api.deepgram.com/v1",
+    api_key: "user-key",
   }),
 }));
 
 vi.mock("~/shared/config", () => ({
   useConfigValues: () => ({
-    current_stt_provider: "anarlog",
-    current_stt_model: "cloud",
+    current_stt_provider: "deepgram",
+    current_stt_model: "nova-3-general",
   }),
 }));
 
 vi.mock("~/stt/capabilities", () => ({
-  isAnarlogCloudSttModel: () => true,
   isOnDeviceSttModel: () => false,
   isRealtimeLocalModel: () => false,
 }));
@@ -46,7 +33,7 @@ vi.mock("~/stt/capabilities", () => ({
 import { useSTTConnection } from "./useSTTConnection";
 
 describe("useSTTConnection", () => {
-  it("uses the hosted STT URL when the stored Anarlog URL is blank", () => {
+  it("uses an explicitly configured cloud provider", () => {
     const queryClient = new QueryClient({
       defaultOptions: { queries: { retry: false } },
     });
@@ -56,10 +43,10 @@ describe("useSTTConnection", () => {
     const { result } = renderHook(() => useSTTConnection(), { wrapper });
 
     expect(result.current.conn).toEqual({
-      provider: "anarlog",
-      model: "cloud",
-      baseUrl: "https://api.anarlog.so/stt",
-      apiKey: "access-token",
+      provider: "deepgram",
+      model: "nova-3-general",
+      baseUrl: "https://api.deepgram.com/v1",
+      apiKey: "user-key",
     });
   });
 });

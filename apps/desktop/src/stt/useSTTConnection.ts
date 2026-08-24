@@ -4,22 +4,13 @@ import { useMemo } from "react";
 import { commands as localSttCommands } from "@anlg/plugin-local-stt";
 import type { AIProviderStorage } from "@anlg/store";
 
-import { useAuth } from "~/auth";
-import { useBillingAccess } from "~/auth/billing-context";
-import { env } from "~/env";
 import { type ProviderId } from "~/settings/ai/stt/shared";
 import { useAiProvider } from "~/settings/providers";
 import { useConfigValues } from "~/shared/config";
-import {
-  isAnarlogCloudSttModel,
-  isOnDeviceSttModel,
-  isRealtimeLocalModel,
-} from "~/stt/capabilities";
+import { isOnDeviceSttModel, isRealtimeLocalModel } from "~/stt/capabilities";
 import { localSttQueries } from "~/stt/useLocalSttModel";
 
 export const useSTTConnection = () => {
-  const auth = useAuth();
-  const billing = useBillingAccess();
   const { current_stt_provider, current_stt_model } = useConfigValues([
     "current_stt_provider",
     "current_stt_model",
@@ -37,10 +28,6 @@ export const useSTTConnection = () => {
     : null;
   const isLocalModel = !!localModel;
 
-  const isCloudModel = isAnarlogCloudSttModel(
-    current_stt_provider,
-    current_stt_model,
-  );
   const localBatchModel = useQuery({
     ...localSttQueries.isDownloaded("soniqo-parakeet-batch"),
     enabled: isRealtimeLocalModel(current_stt_model),
@@ -100,19 +87,6 @@ export const useSTTConnection = () => {
       return local.data?.connection ?? null;
     }
 
-    if (isCloudModel) {
-      if (!auth?.session || !billing.isPaid) {
-        return null;
-      }
-
-      return {
-        provider: current_stt_provider,
-        model: current_stt_model,
-        baseUrl: baseUrl || new URL("/stt", env.VITE_API_URL).toString(),
-        apiKey: auth.session.access_token,
-      };
-    }
-
     if (!baseUrl || !apiKey) {
       return null;
     }
@@ -128,12 +102,9 @@ export const useSTTConnection = () => {
     current_stt_model,
     localModel,
     isLocalModel,
-    isCloudModel,
     local.data,
     baseUrl,
     apiKey,
-    auth,
-    billing.isPaid,
   ]);
 
   return {
@@ -141,6 +112,6 @@ export const useSTTConnection = () => {
     local,
     localBatchDiarizationAvailable: localBatchModel.data === true,
     isLocalModel,
-    isCloudModel,
+    isCloudModel: false,
   };
 };
