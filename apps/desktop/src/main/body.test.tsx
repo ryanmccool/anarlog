@@ -342,19 +342,6 @@ describe("ClassicMainBody", () => {
     );
   });
 
-  it("anchors sync status inside the main note area", () => {
-    render(<ClassicMainBody showSyncStatus />);
-
-    const mainContentPanel = document.querySelector(
-      "[data-main-content-panel]",
-    );
-
-    expect(mainContentPanel?.className).toContain("relative");
-    expect(screen.getByTestId("sync-status-indicator").parentElement).toBe(
-      mainContentPanel,
-    );
-  });
-
   it.each([
     ["settings", { state: { tab: "app" } }],
     ["calendar", {}],

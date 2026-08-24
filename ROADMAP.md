@@ -40,7 +40,7 @@
 
 - [ ] Read and follow `crates/cloudsync/AGENTS.md` before changing CloudSync.
 - [x] Remove the Sync settings navigation and route.
-- [ ] Remove CloudSync runtime, status UI, credentials, database configuration, and attachment sync. In progress.
+- [ ] Remove CloudSync runtime, sync-status host/component, credentials, database configuration, and attachment sync. In progress.
 - [ ] Remove teams/workspaces, shared notes, session sharing, invitations, delivery, and comments.
 - [ ] Remove related Rust crates/plugins, Tauri commands, workspace dependencies, and tests.
 
