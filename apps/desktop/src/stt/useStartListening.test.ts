@@ -539,26 +539,14 @@ describe("useStartListening", () => {
     vi.useRealTimers();
   });
 
-  test("collapses the left sidebar after listening starts", async () => {
+  test("preserves sidebar visibility after listening starts", async () => {
     const { result } = renderHook(() => useStartListening("session-1"));
 
     await act(async () => {
       await result.current();
     });
 
-    expect(setLeftSidebarExpandedMock).toHaveBeenCalledWith(false);
-  });
-
-  test("sets the left sidebar collapsed after listening starts even if render state is stale", async () => {
-    leftSidebarExpanded.value = false;
-
-    const { result } = renderHook(() => useStartListening("session-1"));
-
-    await act(async () => {
-      await result.current();
-    });
-
-    expect(setLeftSidebarExpandedMock).toHaveBeenCalledWith(false);
+    expect(setLeftSidebarExpandedMock).not.toHaveBeenCalled();
   });
 
   test("keeps the left sidebar state when listening fails to start", async () => {

@@ -12,7 +12,6 @@ import {
 } from "./meeting-disclosure";
 
 import { trackAnalyticsEvent } from "~/analytics";
-import { useShell } from "~/contexts/shell";
 import { getSessionEvent } from "~/session/utils";
 import { useConfigValue } from "~/shared/config";
 import { useTabs } from "~/store/zustand/tabs";
@@ -55,8 +54,6 @@ export function useStartListening(sessionId: string) {
 
   const start = useListener((state) => state.start);
   const stop = useListener((state) => state.stop);
-  const { leftsidebar } = useShell();
-  const setLeftSidebarExpanded = leftsidebar.setExpanded;
   const openNew = useTabs((state) => state.openNew);
 
   const startListening = useCallback(async () => {
@@ -215,8 +212,6 @@ export function useStartListening(sessionId: string) {
       });
     }
 
-    setLeftSidebarExpanded(false);
-
     setStopMeetingChatCapture(
       startMeetingChatCapture({
         sessionId,
@@ -263,7 +258,6 @@ export function useStartListening(sessionId: string) {
     session,
     sessionId,
     setStopMeetingChatCapture,
-    setLeftSidebarExpanded,
     meetingDisclosureAutoSendChat,
     spokenLanguages,
     start,
